@@ -1,5 +1,7 @@
 # Mummy
 
+[![Gem Version](https://badge.fury.io/rb/mummy.svg)](http://badge.fury.io/rb/mummy) [![Build Status](https://travis-ci.org/timrogers/mummy.svg)](https://travis-ci.org/timrogers/mummy)
+
 Mummy makes it easy to test yourself for tests and exams. *Just like your mum did back when you were younger.*
 
 ## Usage
