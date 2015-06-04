@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'mummy'
+
+unless path = ARGV[0]
+  raise "You must provide the path to a file as an argument to `mummy`."
+end
+
+Mummy::Test.from_file(path).run
