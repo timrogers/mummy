@@ -6,7 +6,7 @@ Mummy makes it easy to test yourself for tests and exams. *Just like your mum di
 
 ## Usage
 
-Install the gem:
+Install the gem *(Ruby 2.0.0 and later only)*:
 
 ```bash
 $ gem install mummy
