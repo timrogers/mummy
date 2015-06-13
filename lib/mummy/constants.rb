@@ -11,5 +11,17 @@ module Mummy
         TXT => Mummy::Parsers::TxtParser
       }.freeze
     end
+
+    module Parsers
+      PERMITTED = [Mummy::Parsers::MarkdownParser, Mummy::Parsers::TxtParser].freeze
+
+      MARKDOWN = "markdown".freeze
+      TEXT = "text".freeze
+
+      NAMES = {
+        MARKDOWN => Mummy::Parsers::MarkdownParser,
+        TEXT => Mummy::Parsers::TxtParser
+      }.freeze
+    end
   end
 end

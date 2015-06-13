@@ -1,11 +1,17 @@
 module Mummy
   class Test
-    def self.from_file(path)
+    def self.from_file(path, options = {})
       extension = File.extname(path)
       input = File.read(path)
 
-      if parser = Mummy::Constants::Extensions::PARSERS[extension.downcase]
-        items = parser.new(input).items
+      if options[:parser]
+        parser = Mummy::Constants::Parsers::NAMES[options[:parser].downcase]
+        raise "The specified parser, #{options[:parser]}, does not exist" unless parser
+
+        items = parser.new(input, options).items
+        new(items)
+      elsif parser = Mummy::Constants::Extensions::PARSERS[extension.downcase]
+        items = parser.new(input, options).items
         new(items)
       else
         raise "The file isn't of a supported extension - the following are supported: " \
@@ -19,6 +25,8 @@ module Mummy
     end
 
     def run
+      raise "No items were found - is your file formatted correctly?" unless items.any?
+
       items.shuffle.each_with_index do |item, index|
         puts "#{index + 1}/#{items.count}. #{item}"
         @starred.push(item) if $stdin.gets.chomp.include?("*")

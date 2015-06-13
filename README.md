@@ -16,14 +16,14 @@ Then, run `mummy` with a path to a file to run your test from:
 
 ```bash
 $ mummy GV101/Democracy.txt
-$ mummy GV100/Plato.md
+$ mummy GV100/Plato.md --markdown-heading-level 1
 ```
 
-You can write your tests in __Markdown__ (.md) and __plain-text__ (.txt) files.
+You can write your tests in __Markdown__ (.md) and __plain-text__ (.txt) files. __Mummy__ will detect the right parser to use based on the file type, but you can specify this yourself with a `--parser` command line argument (e.g. `--parser markdown` or `--parser text`).
 
 If you're using a text file, just separate the terms you want to be tested on with line breaks.
 
-If you're using Markdown, prefix the terms to be tested on with `##` (i.e. write them as second-level headings).
+If you're using Markdown, prefix the terms to be tested on with `##` (i.e. write them as second-level headings). You can change the heading level you want to look for from the default of H2 (`##`) by specifying a `--markdown-heading-level` command line option (e.g. `--markdown-heading-level 1` will look for lines starting with one "#").
 
 __Mummy__ will read the terms back to you in random order. Hit enter to move onto the next one, or enter an asterisk (`*`) before hitting enter if you want to run by that term again at the end.
 
@@ -36,7 +36,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/timrogers/mummy. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
 
 ## License
 
